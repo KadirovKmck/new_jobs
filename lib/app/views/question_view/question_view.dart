@@ -36,7 +36,7 @@ class _QuestionViewState extends State<QuestionView> {
               _buildPageIndicator(),
               const SizedBox(height: 40),
               _buildPageView(),
-              const SizedBox(height: 245),
+              const SizedBox(height: 225),
               _buildContinueButton(),
             ],
           ),
@@ -141,10 +141,11 @@ class _QuestionViewState extends State<QuestionView> {
           );
         } else {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const CratingInterfaceView(),
-              ));
+            context,
+            MaterialPageRoute(
+              builder: (context) => const CratingInterfaceView(),
+            ),
+          );
         }
       },
     );

@@ -12,6 +12,7 @@ class ActiveAndInactiveWidget extends StatefulWidget {
 class _ActiveAndInactiveWidgetState extends State<ActiveAndInactiveWidget> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Column(
       children: [
         Container(
@@ -67,7 +68,7 @@ class _ActiveAndInactiveWidgetState extends State<ActiveAndInactiveWidget> {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Container(
-                  width: 343,
+                  width: width,
                   height: 71,
                   padding: const EdgeInsets.only(
                     left: 12,
@@ -92,7 +93,7 @@ class _ActiveAndInactiveWidgetState extends State<ActiveAndInactiveWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: 52.19,
+                        width: width * 0.15,
                         height: 36.70,
                         child: SvgPicture.asset(
                           isActive
@@ -101,26 +102,28 @@ class _ActiveAndInactiveWidgetState extends State<ActiveAndInactiveWidget> {
                         ),
                       ),
                       const SizedBox(width: 12),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            isActive ? titleActive[index] : 'Spotify',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              isActive ? titleActive[index] : 'Spotify',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                              ),
                             ),
-                          ),
-                          Text(
-                            isActive
-                                ? timeActive[index]
-                                : 'Last paid 7\$ on 16 October,2022',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 13,
+                            Text(
+                              isActive
+                                  ? timeActive[index]
+                                  : 'Last paid 7\$ on 16 October,2022',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 13,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       const SizedBox(width: 42),
                       const Icon(
@@ -170,10 +173,12 @@ class _ActiveAndInactiveWidgetState extends State<ActiveAndInactiveWidget> {
     required bool isSelected,
     required VoidCallback onTap,
   }) {
+    double width = MediaQuery.of(context).size.width;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 195,
+        width: width * 0.4,
         height: 28,
         padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 7.5),
         decoration: ShapeDecoration(
