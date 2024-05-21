@@ -26,20 +26,18 @@ class _QuestionViewState extends State<QuestionView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              _buildPageIndicator(),
-              const SizedBox(height: 40),
-              _buildPageView(),
-              const SizedBox(height: 225),
-              _buildContinueButton(),
-            ],
-          ),
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            _buildPageIndicator(),
+            const SizedBox(height: 40),
+            _buildPageView(),
+            const SizedBox(height: 225),
+            _buildContinueButton(),
+          ],
         ),
       ),
     );

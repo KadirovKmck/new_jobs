@@ -8,45 +8,43 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 25,
+    return const Scaffold(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // SizedBox(
+              //   height: 25,
+              // ),
+              SubscriptionAppBarWidget(),
+              SizedBox(
+                height: 36,
+              ),
+              Text(
+                'Reminder',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
                 ),
-                SubscriptionAppBarWidget(),
-                SizedBox(
-                  height: 36,
-                ),
-                Text(
-                  'Reminder',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                SizedBox(
-                  height: 120,
-                  width: double.infinity,
-                  child: ReminderContainerWidget(),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Center(
-                  child: ActiveAndInactiveWidget(),
-                ),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                height: 120,
+                width: double.infinity,
+                child: ReminderContainerWidget(),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Center(
+                child: ActiveAndInactiveWidget(),
+              ),
+            ],
           ),
         ),
       ),

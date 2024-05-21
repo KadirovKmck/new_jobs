@@ -55,11 +55,11 @@ class _ActiveAndInactiveWidgetState extends State<ActiveAndInactiveWidget> {
             ],
           ),
         ),
-        const SizedBox(
-          height: 15,
-        ),
+        // const SizedBox(
+        //   height: 15,
+        // ),
         SizedBox(
-          height: 450,
+          height: 440,
           width: double.infinity,
           child: ListView.builder(
             scrollDirection: Axis.vertical,

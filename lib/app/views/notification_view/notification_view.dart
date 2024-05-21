@@ -20,7 +20,7 @@ class _NotificationViewState extends State<NotificationView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -45,7 +45,7 @@ class _NotificationViewState extends State<NotificationView> {
                 ),
               ],
             ),
-            const SizedBox(height: 40),
+            // const SizedBox(height: 20),
             SizedBox(
               height: 450,
               width: double.infinity,

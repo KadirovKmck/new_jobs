@@ -21,119 +21,116 @@ class _AddSubscriptionViewState extends State<AddSubscriptionView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_ios_new_outlined,
-                    color: Colors.white,
-                    size: 30,
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 50),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.arrow_back_ios_new_outlined,
+                  color: Colors.white,
+                  size: 30,
+                ),
+              ),
+              const Center(
+                child: CircleAvatar(
+                  radius: 90,
+                  backgroundImage: AssetImage('assets/images/kadirov.jpeg'),
+                ),
+              ),
+              const Center(
+                child: Text(
+                  'Name',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xFFC4C4C4),
+                    fontSize: 32,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
-                const Center(
-                  child: CircleAvatar(
-                    radius: 90,
-                    backgroundImage: AssetImage('assets/images/kadirov.jpeg'),
-                  ),
-                ),
-                const Center(
-                  child: Text(
-                    'Name',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFFC4C4C4),
-                      fontSize: 32,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 45,
-                ),
-                TextfildWidget(
-                  readOnly: false,
-                  controller: costController,
-                  placeholder: 'Cost',
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                TextfildWidget(
-                  readOnly: false,
-                  controller: siteUrlController,
-                  placeholder: 'Site Url',
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                TextfildWidget(
-                  readOnly: false,
-                  controller: noteController,
-                  placeholder: 'Note',
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                TextfildWidget(
-                  onTap: () async {
-                    showSfDate(context, subscriptionController, selectedDates);
-                  },
-                  readOnly: true,
-                  controller: subscriptionController,
-                  placeholder: 'Subscription Date',
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                TextfildWidget(
-                  onTap: () async {
-                    showSfDate(context, expirationController, selectedDates);
-                  },
-                  readOnly: true,
-                  controller: expirationController,
-                  placeholder: 'Expiration Date',
-                ),
-                const SizedBox(
-                  height: 53,
-                ),
-                SizedBox(
-                  width: double.infinity,
-                  child: ConteinerUi(
-                    name: 'Send me notifications',
-                    onTap: () {
-                      final addNextPeyment = AddNextPeyment();
-                      addNextPeyment.addNextPeymentCost
-                          .add(costController.text);
-                      addNextPeyment.addNextPeymentDate
-                          .add(subscriptionController.text);
-                      addNextPeyment.addNextPeymentSiteUrl
-                          .add(siteUrlController.text);
-                      addNextPeyment.addNextPeymentDateCalender
-                          .addAll(selectedDates);
+              ),
+              const SizedBox(
+                height: 45,
+              ),
+              TextfildWidget(
+                readOnly: false,
+                controller: costController,
+                placeholder: 'Cost',
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              TextfildWidget(
+                readOnly: false,
+                controller: siteUrlController,
+                placeholder: 'Site Url',
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              TextfildWidget(
+                readOnly: false,
+                controller: noteController,
+                placeholder: 'Note',
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              TextfildWidget(
+                onTap: () async {
+                  showSfDate(context, subscriptionController, selectedDates);
+                },
+                readOnly: true,
+                controller: subscriptionController,
+                placeholder: 'Subscription Date',
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              TextfildWidget(
+                onTap: () async {
+                  showSfDate(context, expirationController, selectedDates);
+                },
+                readOnly: true,
+                controller: expirationController,
+                placeholder: 'Expiration Date',
+              ),
+              const SizedBox(
+                height: 53,
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: ConteinerUi(
+                  name: 'Send me notifications',
+                  onTap: () {
+                    final addNextPeyment = AddNextPeyment();
+                    addNextPeyment.addNextPeymentCost.add(costController.text);
+                    addNextPeyment.addNextPeymentDate
+                        .add(subscriptionController.text);
+                    addNextPeyment.addNextPeymentSiteUrl
+                        .add(siteUrlController.text);
+                    addNextPeyment.addNextPeymentDateCalender
+                        .addAll(selectedDates);
 
-                      costController.clear();
-                      expirationController.clear();
-                      noteController.clear();
-                      siteUrlController.clear();
-                      subscriptionController.clear();
+                    costController.clear();
+                    expirationController.clear();
+                    noteController.clear();
+                    siteUrlController.clear();
+                    subscriptionController.clear();
 
-                      setState(() {
-                        selectedDates.clear();
-                      });
-                    },
-                  ),
+                    setState(() {
+                      selectedDates.clear();
+                    });
+                  },
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

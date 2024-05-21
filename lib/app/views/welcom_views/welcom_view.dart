@@ -12,59 +12,57 @@ class WelcomView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = PageController();
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(15),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 700,
-                child: PageView(
-                  controller: controller,
-                  children: const [
-                    TrackSubViewOne(),
-                    TrackSubViewTwo(),
-                    TrackSubViewThree(),
-                  ],
-                ),
-              ),
-              SmoothPageIndicator(
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(15),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 700,
+              child: PageView(
                 controller: controller,
-                count: 3,
-                effect: const JumpingDotEffect(
-                  dotHeight: 10,
-                  dotWidth: 10,
-                  activeDotColor: Color(0xff4C9FFC),
-                  dotColor: Color.fromARGB(160, 76, 158, 252),
-                  verticalOffset: 25,
-                ),
+                children: const [
+                  TrackSubViewOne(),
+                  TrackSubViewTwo(),
+                  TrackSubViewThree(),
+                ],
               ),
-              const SizedBox(
-                height: 31,
+            ),
+            SmoothPageIndicator(
+              controller: controller,
+              count: 3,
+              effect: const JumpingDotEffect(
+                dotHeight: 10,
+                dotWidth: 10,
+                activeDotColor: Color(0xff4C9FFC),
+                dotColor: Color.fromARGB(160, 76, 158, 252),
+                verticalOffset: 25,
               ),
-              ConteinerUi(
-                onTap: () {
-                  int nextPage = controller.page!.toInt() + 1;
-                  if (nextPage < 3) {
-                    controller.animateToPage(
-                      nextPage,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
-                    );
-                  } else {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const QuestionView(),
-                      ),
-                    );
-                  }
-                },
-                name: 'Get started',
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 31,
+            ),
+            ConteinerUi(
+              onTap: () {
+                int nextPage = controller.page!.toInt() + 1;
+                if (nextPage < 3) {
+                  controller.animateToPage(
+                    nextPage,
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                  );
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const QuestionView(),
+                    ),
+                  );
+                }
+              },
+              name: 'Get started',
+            ),
+          ],
         ),
       ),
     );
