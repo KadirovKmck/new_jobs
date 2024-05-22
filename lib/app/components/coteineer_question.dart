@@ -8,11 +8,13 @@ class CoteineerQuestion extends StatelessWidget {
   final BorderSide side;
   @override
   Widget build(BuildContext context) {
+    final heidth = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 343,
-        height: 41,
+        width: heidth * 0.4,
+        height: width * 0.082,
         padding: const EdgeInsets.all(10),
         decoration: ShapeDecoration(
           color: const Color(0x7F4B9CF9),
@@ -31,9 +33,9 @@ class CoteineerQuestion extends StatelessWidget {
           child: Text(
             title,
             textAlign: TextAlign.center,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white,
-              fontSize: 19,
+              fontSize: width * 0.038,
               fontFamily: 'SF Pro Display',
               fontWeight: FontWeight.w500,
               height: 0.05,

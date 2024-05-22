@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:new_jobs/app/views/home_views/views/add_subscription_view.dart';
 
 class SubscriptionAppBarWidget extends StatelessWidget {
+  final VoidCallback onAddSubscription;
+
   const SubscriptionAppBarWidget({
     super.key,
+    required this.onAddSubscription,
   });
 
   @override
   Widget build(BuildContext context) {
+    final heigth = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Row(
       children: [
-        const Column(
+        Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -19,27 +23,18 @@ class SubscriptionAppBarWidget extends StatelessWidget {
               'Subscription',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 32,
+                fontSize: width * 0.078,
                 fontWeight: FontWeight.w600,
               ),
             ),
-            SizedBox(height: 8),
+            SizedBox(height: heigth * 0.005),
             Row(
               children: [
                 Text(
-                  'Per month',
+                  'Per month   48\$',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                SizedBox(width: 10),
-                Text(
-                  '48\$',
-                  style: TextStyle(
-                    color: Color(0xFFD3D3D3),
-                    fontSize: 16,
+                    fontSize: width * 0.038,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -47,21 +42,15 @@ class SubscriptionAppBarWidget extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
-          width: 96,
+        SizedBox(
+          width: width * 0.24,
         ),
         GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const AddSubscriptionView(),
-                ));
-          },
+          onTap: onAddSubscription,
           child: SvgPicture.asset(
             'assets/icons/plus_icon.svg',
-            height: 60,
-            width: 60,
+            height: heigth * 0.060,
+            width: width * 0.060,
           ),
         ),
       ],

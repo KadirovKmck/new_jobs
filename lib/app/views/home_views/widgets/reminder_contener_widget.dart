@@ -29,11 +29,14 @@ class ReminderContainerWidget extends StatelessWidget {
         children: List.generate(
           3,
           (index) => Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.015),
             child: Container(
               width: screenWidth * 0.4,
               height: screenWidth * 0.3,
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.028,
+                vertical: screenheight * 0.012,
+              ),
               decoration: ShapeDecoration(
                 color: const Color(0xCC4CA1FE),
                 shape: RoundedRectangleBorder(
@@ -71,11 +74,11 @@ class ReminderContainerWidget extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          const Text(
+                          Text(
                             '6\$',
                             style: TextStyle(
-                              color: Color(0xFF4A4A4A),
-                              fontSize: 13,
+                              color: const Color(0xFF4A4A4A),
+                              fontSize: screenWidth * 0.029,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -101,13 +104,13 @@ class ReminderContainerWidget extends StatelessWidget {
                         backgroundColor: Colors.white,
                       ),
                       const SizedBox(width: 9),
-                      const Flexible(
+                      Flexible(
                         child: Text(
                           'Days\nremaining',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 11,
+                            fontSize: screenWidth * 0.03,
                             fontFamily: 'SF Pro Text',
                             fontWeight: FontWeight.w500,
                           ),

@@ -12,13 +12,14 @@ class WelcomView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = PageController();
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
             SizedBox(
-              height: 700,
+              height: height * 0.75,
               child: PageView(
                 controller: controller,
                 children: const [
@@ -39,8 +40,8 @@ class WelcomView extends StatelessWidget {
                 verticalOffset: 25,
               ),
             ),
-            const SizedBox(
-              height: 31,
+            SizedBox(
+              height: height * 0.031,
             ),
             ConteinerUi(
               onTap: () {

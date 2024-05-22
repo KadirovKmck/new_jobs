@@ -15,22 +15,26 @@ class CratingInterfaceView extends StatefulWidget {
 class _CratingInterfaceViewState extends State<CratingInterfaceView> {
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final heigth = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Center(
         child: Column(
           children: <Widget>[
-            const SizedBox(
-              height: 100,
+            SizedBox(
+              height: heigth * 0.100,
             ),
-            const Text(
+            Text(
               'Personafication',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 24,
+                fontSize: width * 0.060,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 30),
+            SizedBox(
+              height: heigth * 0.030,
+            ),
             CircularPercentIndicator(
               linearGradient: const LinearGradient(colors: [
                 Color(0xff4CA1FE),
@@ -47,37 +51,37 @@ class _CratingInterfaceViewState extends State<CratingInterfaceView> {
               // progressColor: const Color(0xFF32338D),
               backgroundColor: const Color.fromARGB(163, 0, 123, 255),
             ),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: heigth * 0.030,
             ),
-            const SizedBox(
-              width: 255,
+            SizedBox(
+              width: width * 0.755,
               child: Text(
                 'Please wait\nNow we will configure the app based on your answers',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 16,
+                  fontSize: width * 0.039,
                   fontFamily: 'SF Pro Text',
                   fontWeight: FontWeight.w400,
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: heigth * 0.020,
             ),
             FractionallySizedBox(
               widthFactor: 0.6,
               child: Text(
                 _getProgressMessage(),
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: Color(0xff007AFF),
-                  fontSize: 16,
+                style: TextStyle(
+                  color: const Color(0xff007AFF),
+                  fontSize: width * 0.035,
                 ),
               ),
             ),
-            const SizedBox(height: 260),
+            SizedBox(height: heigth * 0.260),
             if (_progress == 1.0)
               ConteinerUi(
                 name: 'Coutinue',
@@ -105,15 +109,15 @@ class _CratingInterfaceViewState extends State<CratingInterfaceView> {
   }
 
   void _startLoading() {
-    Future.delayed(const Duration(seconds: 1), _updateProgress);
+    Future.delayed(const Duration(seconds: 2), _updateProgress);
   }
 
   void _updateProgress() {
     if (_progress < 1.0) {
       setState(() {
-        _progress += 0.20;
+        _progress += 0.25;
       });
-      Future.delayed(const Duration(seconds: 1), _updateProgress);
+      Future.delayed(const Duration(seconds: 2), _updateProgress);
     } else {
       setState(() {
         // Loading complete
@@ -125,7 +129,7 @@ class _CratingInterfaceViewState extends State<CratingInterfaceView> {
     if (_progress <= 0.25) {
       return _messages[0];
     } else if (_progress <= 0.5) {
-      return _messages[1];
+      return _messages[0];
     } else if (_progress <= 0.75) {
       return _messages[2];
     } else {

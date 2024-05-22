@@ -6,11 +6,13 @@ class ConteinerUi extends StatelessWidget {
   final Function() onTap;
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 343,
-        height: 41,
+        width: width * 0.843,
+        height: height * 0.041,
         padding: const EdgeInsets.all(10),
         decoration: ShapeDecoration(
           gradient: const LinearGradient(
@@ -34,12 +36,11 @@ class ConteinerUi extends StatelessWidget {
           child: Text(
             name,
             textAlign: TextAlign.center,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: width * 0.045,
               fontWeight: FontWeight.w600,
               height: 0.05,
-              letterSpacing: -0.32,
             ),
           ),
         ),

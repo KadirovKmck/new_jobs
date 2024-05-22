@@ -5,7 +5,9 @@ import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:intl/intl.dart';
 
 class AddSubscriptionView extends StatefulWidget {
-  const AddSubscriptionView({super.key});
+  final Function() onSubscriptionAdded;
+
+  const AddSubscriptionView({super.key, required this.onSubscriptionAdded});
 
   @override
   State<AddSubscriptionView> createState() => _AddSubscriptionViewState();
@@ -124,6 +126,8 @@ class _AddSubscriptionViewState extends State<AddSubscriptionView> {
                     siteUrlController.clear();
                     subscriptionController.clear();
 
+                    widget.onSubscriptionAdded();
+
                     setState(() {
                       selectedDates.clear();
                     });
@@ -172,16 +176,14 @@ class _AddSubscriptionViewState extends State<AddSubscriptionView> {
 }
 
 class AddNextPeyment {
-  static final AddNextPeyment _instance = AddNextPeyment._internal();
-
+  AddNextPeyment._privateConstructor();
+  static final AddNextPeyment _instance = AddNextPeyment._privateConstructor();
   factory AddNextPeyment() {
     return _instance;
   }
 
-  AddNextPeyment._internal();
-
   final List<String> addNextPeymentCost = [];
-  List<DateTime> addNextPeymentDateCalender = [];
   final List<String> addNextPeymentDate = [];
   final List<String> addNextPeymentSiteUrl = [];
+  final List<DateTime> addNextPeymentDateCalender = [];
 }

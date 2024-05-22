@@ -26,16 +26,20 @@ class _QuestionViewState extends State<QuestionView> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
+        padding: EdgeInsets.symmetric(
+            horizontal: width * 0.020, vertical: height * 0.050),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             _buildPageIndicator(),
-            const SizedBox(height: 40),
+            SizedBox(height: height * 0.040),
             _buildPageView(),
-            const SizedBox(height: 225),
+            SizedBox(height: height * 0.200),
             _buildContinueButton(),
           ],
         ),
@@ -81,15 +85,17 @@ class _QuestionViewState extends State<QuestionView> {
       QuestionsAnswers().fourColum
     ];
 
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Column(
       children: [
         SizedBox(
-          height: 155,
+          height: height * 0.155,
           child: Text(
             questionsText[pageIndex],
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white,
-              fontSize: 24,
+              fontSize: width * 0.048,
               fontFamily: 'SF Pro Text',
               fontWeight: FontWeight.w600,
             ),

@@ -14,11 +14,13 @@ class TrackSubWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 330, top: 10),
+            padding: EdgeInsets.only(left: width * 0.650, top: height * 0.030),
             child: TextButton(
               onPressed: () {
                 Navigator.push(
@@ -28,38 +30,35 @@ class TrackSubWidget extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text(
+              child: Text(
                 'Skip',
-                textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Color(0xFFCBCBCB),
-                  fontSize: 16,
+                  color: const Color(0xFFCBCBCB),
+                  fontSize: width * 0.05,
                   fontWeight: FontWeight.w600,
-                  height: 0.11,
-                  letterSpacing: -0.32,
                 ),
               ),
             ),
           ),
-          const SizedBox(
-            height: 25,
+          SizedBox(
+            height: height * 0.025,
           ),
           SizedBox(
-            width: 406,
-            height: 406,
+            width: width * 1,
+            height: height * 0.406,
             child: Image.asset('assets/images/$welcomImage.png'),
           ),
-          const SizedBox(
-            height: 25,
+          SizedBox(
+            height: height * 0.025,
           ),
           Column(
             children: [
               Text(
                 welcomName,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
-                  fontSize: 32,
+                  fontSize: width * 0.077,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -67,9 +66,9 @@ class TrackSubWidget extends StatelessWidget {
               Text(
                 welcomDescription,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
-                  fontSize: 14,
+                  fontSize: width * 0.034,
                   fontWeight: FontWeight.w400,
                 ),
               ),
