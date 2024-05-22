@@ -1,7 +1,7 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsView extends StatefulWidget {
   const SettingsView({super.key});
@@ -13,6 +13,15 @@ class SettingsView extends StatefulWidget {
 class _SettingsViewState extends State<SettingsView> {
   bool _notificationsEnabled = true;
   double _rating = 0.0;
+  void _openSupportPage() async {
+    const url =
+        'https://example.com/support'; // Replace with your support page URL
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   void _showRatingDialog() {
     showDialog(
@@ -142,7 +151,8 @@ class _SettingsViewState extends State<SettingsView> {
               contentPadding: EdgeInsets.zero,
             ),
             const Divider(color: Colors.grey),
-            _buildSettingsOption('Support', const Color(0xFF007AFF), () {}),
+            _buildSettingsOption(
+                'Support', const Color(0xFF007AFF), _openSupportPage),
             _buildSettingsOption('Share app', const Color(0xFF007AFF), () {}),
             _buildSettingsOption(
                 'Rate us', const Color(0xFF007AFF), _showRatingDialog),
