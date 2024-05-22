@@ -15,7 +15,7 @@ class _SettingsViewState extends State<SettingsView> {
   double _rating = 0.0;
   void _openSupportPage() async {
     const url =
-        'https://example.com/support'; // Replace with your support page URL
+        'https://example.com/support'; 
     if (await canLaunch(url)) {
       await launch(url);
     } else {
