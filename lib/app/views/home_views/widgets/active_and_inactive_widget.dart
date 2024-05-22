@@ -25,7 +25,7 @@ class _ActiveAndInactiveWidgetState extends State<ActiveAndInactiveWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          width: double.infinity,
+          width: width * 0.95,
           height: heigth * 0.040,
           padding: const EdgeInsets.all(2),
           decoration: ShapeDecoration(
